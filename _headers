@@ -1,0 +1,35 @@
+# _headers — Netlify security headers
+# Place this file in the root of your deploy directory (same level as index.html).
+# Netlify reads it automatically on every deploy.
+# These HTTP headers take precedence over the meta http-equiv fallbacks in index.html.
+
+/*
+  # Prevent the browser guessing MIME types — stops a whole class of injection attacks
+  X-Content-Type-Options: nosniff
+
+  # Deny framing entirely — no clickjacking
+  X-Frame-Options: DENY
+
+  # Don't send the Referer header to any external site
+  Referrer-Policy: no-referrer
+
+  # Disable browser features that have no business on a static portfolio
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+
+  # HSTS — tell browsers to always use HTTPS, remember for 1 year, include subdomains
+  # Only enable this once you're certain HTTPS is working correctly on your domain
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Content Security Policy
+  # Breakdown:
+  #   default-src 'none'                 → deny everything not explicitly listed
+  #   script-src  'self'                 → only JS from this origin, no inline scripts, no eval
+  #   style-src   'self' fonts.google    → stylesheet from self + Google Fonts CDN
+  #   font-src    fonts.gstatic          → font files from Google's static CDN
+  #   img-src     'self' data:           → local images + inline SVG data URIs (grain texture)
+  #   connect-src 'none'                 → no fetch/XHR/WebSocket calls from the browser
+  #   frame-src   'none'                 → no iframes
+  #   object-src  'none'                 → no Flash/plugins
+  #   base-uri    'self'                 → prevent <base> tag injection
+  #   form-action 'none'                 → no form submissions to anywhere
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';

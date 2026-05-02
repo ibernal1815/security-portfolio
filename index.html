@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    ── SECURITY META TAGS ───────────────────────────────────────────────────
+    These work as a fallback when HTTP headers can't be set (e.g. GitHub Pages).
+    If you're on Netlify, Vercel, or a server you control, the _headers /
+    nginx.conf / .htaccess files in this repo set the real HTTP headers instead,
+    which take precedence and are more reliable.
+
+    CSP breakdown:
+      default-src 'none'        → deny everything by default
+      script-src  'self'        → only load JS from this origin
+      style-src   'self' fonts  → stylesheet from self + Google Fonts
+      font-src    fonts.gstatic → font files from Google
+      img-src     'self' data:  → local images + inline SVG data URIs (grain)
+      connect-src 'none'        → no fetch/XHR (no API calls from the browser)
+      frame-src   'none'        → no iframes
+      object-src  'none'        → no Flash/plugins
+      base-uri    'self'        → prevent base tag hijacking
+      form-action 'none'        → no form submissions
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'none';
+    script-src  'self';
+    style-src   'self' https://fonts.googleapis.com;
+    font-src    https://fonts.gstatic.com;
+    img-src     'self' data:;
+    connect-src 'none';
+    frame-src   'none';
+    object-src  'none';
+    base-uri    'self';
+    form-action 'none';
+  ">
+
+  <!-- prevents MIME-type sniffing attacks -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <!-- no referrer sent on outbound links -->
+  <meta name="referrer" content="no-referrer">
+
+  <!-- disallow embedding this page in any frame -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+
+  <title>Isaiah Bernal &mdash; Cybersecurity</title>
+  <meta name="description" content="Isaiah Bernal — Cybersecurity analyst, SOC operations, detection engineering, and DFIR. Los Angeles, CA.">
+
+  <!-- Google Fonts — preconnect first for speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fragment+Mono:ital@0;1&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-id"><strong>IB</strong> &mdash; isaiah bernal</div>
+  <ul>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#trajectory">Trajectory</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<div id="hero">
+  <div>
+    <p class="eyebrow">// Cybersecurity Analyst &mdash; Los Angeles, CA</p>
+    <h1 class="name">
+      ISAIAH
+      <span class="ghost">BERNAL</span>
+    </h1>
+    <p class="hero-sub">
+      SOC operations, detection engineering, and DFIR.
+      Building offensive and defensive tooling from scratch since 2023.
+      The path runs <strong>SOC L1 &rarr; Detection Engineering &rarr; Purple Team,</strong>
+      built deliberately, not by accident. <em>Try the terminal &rarr;</em>
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="https://github.com/ibernal1815" target="_blank" rel="noopener noreferrer" class="btn ghost">GitHub</a>
+      <a href="#contact" class="btn ghost">Contact</a>
+    </div>
+  </div>
+
+  <!-- interactive terminal — logic lives in assets/js/terminal.js -->
+  <div class="live-term" id="terminal">
+    <div class="term-titlebar">
+      <div class="tdot r"></div>
+      <div class="tdot y"></div>
+      <div class="tdot g"></div>
+      <span class="term-title">isaiah@portfolio:~</span>
+    </div>
+    <div class="term-output" id="termOutput"></div>
+    <div class="term-hint">type <span style="color:var(--muted)">help</span> to see available commands</div>
+    <div class="term-input-row">
+      <span class="term-prompt-label">isaiah@portfolio:~$</span>
+      <!-- autocomplete/autocorrect off — this is a command input, not a form field -->
+      <input
+        class="term-input"
+        id="termInput"
+        type="text"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Terminal input"
+        placeholder="_"
+      >
+    </div>
+  </div>
+</div>
+
+<!-- ── EXPERIENCE ────────────────────────────────────────────────────────── -->
+<div class="wrap" id="experience">
+  <p class="s-label fade-in">// 01 &mdash; Experience</p>
+  <h2 class="s-title fade-in">WORK</h2>
+  <div class="exp-list">
+
+    <div class="exp-row fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Feb 2026 &mdash; Present</div>
+        <div class="exp-org">CSUN</div>
+      </div>
+      <div class="exp-body">
+        <h3>Cloud Windows Systems Administrator</h3>
+        <ul>
+          <li>Monitored SIEM dashboards and triaged security alerts across enterprise Windows infrastructure.</li>
+          <li>Managed Active Directory: access control validation, privilege reviews, GPO security policy enforcement.</li>
+          <li>Conducted log auditing and security reviews; maintained SOPs and incident records in the ticketing system.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Dec 2025 &mdash; Present</div>
+        <div class="exp-org">Handshake AI</div>
+      </div>
+      <div class="exp-body">
+        <h3>Cybersecurity Expert / AI Data Trainer</h3>
+        <ul>
+          <li>Evaluated 600+ AI outputs across pen testing, malware analysis, and IR domains at roughly 97% accuracy.</li>
+          <li>Documented recurring error patterns in automated cybersecurity responses to improve LLM reliability at scale.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Apr 2023 &mdash; Present</div>
+        <div class="exp-org">Self-Directed</div>
+      </div>
+      <div class="exp-body">
+        <h3>Independent Cybersecurity Researcher</h3>
+        <ul>
+          <li>Triaged 40+ process chains via Event Logs and Sysmon; produced MITRE ATT&amp;CK-mapped threat reports.</li>
+          <li>Performed memory forensics on 6+ disk images using Volatility; extracted and structured IOC reports.</li>
+          <li>Built offensive and defensive tooling: AES keylogger with Flask C2, Linux privesc lab, FIM in C, Sigma rules, and an IOC enrichment CLI.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row fade-in">
+      <div class="exp-meta">
+        <div class="exp-date">Jan 2020 &mdash; Jun 2023</div>
+        <div class="exp-org">Robotecus</div>
+      </div>
+      <div class="exp-body">
+        <h3>IT Specialist</h3>
+        <ul>
+          <li>Secured and configured 20+ endpoints; enforced device security baselines and data protection standards.</li>
+          <li>Deployed and maintained technical infrastructure; reduced deployment latency by 30%.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SKILLS ─────────────────────────────────────────────────────────────── -->
+<div class="wrap" id="skills">
+  <p class="s-label fade-in">// 02 &mdash; Technical</p>
+  <h2 class="s-title fade-in">SKILLS</h2>
+  <div class="skills-layout">
+    <div class="skills-cards">
+
+      <div class="sk-card fade-in">
+        <p class="sk-num">01</p>
+        <h3>SIEM &amp; Monitoring</h3>
+        <p>Alert triage, log correlation, rule tuning. Writing queries that surface real behavior, not dashboard noise.</p>
+        <div class="tools"><span class="tool">Splunk/SPL</span><span class="tool">Elastic/KQL</span><span class="tool">Wazuh</span><span class="tool">Sysmon</span></div>
+      </div>
+
+      <div class="sk-card fade-in">
+        <p class="sk-num">02</p>
+        <h3>Detection Engineering</h3>
+        <p>Sigma rule authoring, behavioral analytics, threat hunting mapped to MITRE ATT&amp;CK.</p>
+        <div class="tools"><span class="tool">Sigma</span><span class="tool">Suricata</span><span class="tool">ATT&amp;CK</span><span class="tool">Threat Hunting</span></div>
+      </div>
+
+      <div class="sk-card fade-in">
+        <p class="sk-num">03</p>
+        <h3>DFIR &amp; Forensics</h3>
+        <p>Memory forensics, disk image analysis, IOC extraction. Reconstructing what actually happened.</p>
+        <div class="tools"><span class="tool">Volatility</span><span class="tool">Autopsy</span><span class="tool">IOC Extraction</span></div>
+      </div>
+
+      <div class="sk-card fade-in">
+        <p class="sk-num">04</p>
+        <h3>Offensive Security</h3>
+        <p>Privilege escalation, C2 frameworks, malware analysis, YARA rules. Understanding attacks to build better defenses.</p>
+        <div class="tools"><span class="tool">Priv Esc</span><span class="tool">C2</span><span class="tool">YARA</span><span class="tool">Nmap</span></div>
+      </div>
+
+      <div class="sk-card fade-in">
+        <p class="sk-num">05</p>
+        <h3>Scripting &amp; Dev</h3>
+        <p>Python and Bash for tooling and automation. C for low-level work where the machine's behavior is the point.</p>
+        <div class="tools"><span class="tool">Python</span><span class="tool">Bash</span><span class="tool">PowerShell</span><span class="tool">C</span><span class="tool">SQL</span><span class="tool">Flask</span></div>
+      </div>
+
+      <div class="sk-card fade-in">
+        <p class="sk-num">06</p>
+        <h3>Network &amp; Traffic</h3>
+        <p>Packet capture, protocol behavior, IDS/IPS. Knowing what normal looks like is the prerequisite for catching what is not.</p>
+        <div class="tools"><span class="tool">Wireshark</span><span class="tool">Suricata</span><span class="tool">TCP/IP</span><span class="tool">IDS/IPS</span></div>
+      </div>
+
+    </div>
+
+    <div class="radar-panel fade-in">
+      <h4>// Competency Radar</h4>
+      <canvas id="radarCanvas" width="340" height="340" aria-label="Competency radar chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROJECTS ───────────────────────────────────────────────────────────── -->
+<div class="wrap" id="projects">
+  <p class="s-label fade-in">// 03 &mdash; Built Work</p>
+  <h2 class="s-title fade-in">PROJECTS</h2>
+  <p class="fade-in" style="font-family:var(--mono);font-size:0.68rem;color:var(--muted);margin-bottom:2rem;letter-spacing:0.06em;">Click any project to expand details.</p>
+  <div class="proj-list">
+
+    <div class="proj-row fade-in" data-project="0">
+      <p class="proj-n">01</p>
+      <div class="proj-body">
+        <h3>Malware Analysis Lab</h3>
+        <p>FLARE-VM + REMnux static/dynamic analysis environment with YARA rules and Sigma detections integrated into Wazuh SIEM.</p>
+        <p class="proj-open-hint">click to expand &rarr;</p>
+      </div>
+      <div class="proj-tags"><span class="tag">DFIR</span><span class="tag">YARA</span><span class="tag">Sigma</span><span class="tag">Wazuh</span></div>
+    </div>
+
+    <div class="proj-row fade-in" data-project="1">
+      <p class="proj-n">02</p>
+      <div class="proj-body">
+        <h3>Sysmon Detection Lab</h3>
+        <p>Simulated credential dumping, persistence, and lateral movement in VMware. Sigma rules, Wazuh + Elastic SIEM correlation.</p>
+        <p class="proj-open-hint">click to expand &rarr;</p>
+      </div>
+      <div class="proj-tags"><span class="tag">Detection</span><span class="tag">Sysmon</span><span class="tag">Elastic</span></div>
+    </div>
+
+    <div class="proj-row fade-in" data-project="2">
+      <p class="proj-n">03</p>
+      <div class="proj-body">
+        <h3>Threat Intel Enricher</h3>
+        <p>CLI tool that enriches IOCs against VirusTotal and AbuseIPDB. Removes the manual lookup step from triage workflows.</p>
+        <p class="proj-open-hint">click to expand &rarr;</p>
+      </div>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">OSINT</span><span class="tag">VirusTotal</span></div>
+    </div>
+
+    <div class="proj-row fade-in" data-project="3">
+      <p class="proj-n">04</p>
+      <div class="proj-body">
+        <h3>AES Keylogger + Flask C2</h3>
+        <p>AES-encrypted keylogger with Flask command and control. Built to understand the full attack chain from initial access through exfiltration.</p>
+        <p class="proj-open-hint">click to expand &rarr;</p>
+      </div>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">AES</span></div>
+    </div>
+
+    <div class="proj-row fade-in" data-project="4">
+      <p class="proj-n">05</p>
+      <div class="proj-body">
+        <h3>File Integrity Monitor in C</h3>
+        <p>Low-level FIM written in C. Monitors filesystem state and flags unauthorized changes at the system call level.</p>
+        <p class="proj-open-hint">click to expand &rarr;</p>
+      </div>
+      <div class="proj-tags"><span class="tag">C</span><span class="tag">Systems</span><span class="tag">Defense</span></div>
+    </div>
+
+    <div class="proj-row fade-in" data-project="5">
+      <p class="proj-n">06</p>
+      <div class="proj-body">
+        <h3>Linux PrivEsc Lab</h3>
+        <p>Two-VM lab covering SUID, systemd abuse, sudo misconfig, and capability escalation. Every vector documented with detection counterparts.</p>
+        <p class="proj-open-hint">click to expand &rarr;</p>
+      </div>
+      <div class="proj-tags"><span class="tag">Linux</span><span class="tag">Priv Esc</span><span class="tag">Bash</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── TRAJECTORY + CERTS ─────────────────────────────────────────────────── -->
+<div class="wrap" id="trajectory">
+  <p class="s-label fade-in">// 04 &mdash; Path &amp; Credentials</p>
+  <h2 class="s-title fade-in">TRAJECTORY</h2>
+  <div class="traj-grid">
+
+    <div class="traj-left">
+      <div class="tl-item">
+        <p class="tl-yr">2023</p>
+        <h3>A.S. Cybersecurity</h3>
+        <p>Los Angeles Mission College. Where the direction locked in and the independent research practice started.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-yr">2023 &mdash; 2026</p>
+        <h3>B.S. CIT at CSUN</h3>
+        <p>Undergraduate degree running in parallel with independent labs, certifications, and first professional roles.</p>
+      </div>
+      <div class="tl-item now">
+        <p class="tl-yr">Now</p>
+        <h3>Cloud Windows SysAdmin</h3>
+        <p>First enterprise security role. Real SIEM triage, Active Directory management, and incident documentation at production scale.</p>
+      </div>
+      <div class="tl-item future">
+        <p class="tl-yr">2026 &mdash; 2028</p>
+        <h3>M.S. Information Security</h3>
+        <p>Cal Poly Pomona. Graduate study running alongside the professional track. HTB CDSA closes out around the same time.</p>
+      </div>
+      <div class="tl-item future">
+        <p class="tl-yr">Next</p>
+        <h3>SOC L1 Analyst</h3>
+        <p>Full-time alert triage and incident response. Learning the production shape of security operations before writing the rules that generate the alerts.</p>
+      </div>
+      <div class="tl-item future">
+        <p class="tl-yr">Then</p>
+        <h3>Detection Engineer</h3>
+        <p>Writing detection logic from scratch. Sigma, behavioral analytics, ATT&amp;CK-mapped hunting rules. The destination the whole research practice points toward.</p>
+      </div>
+      <div class="tl-item future">
+        <p class="tl-yr">Fork</p>
+        <h3>Purple Team / DFIR / Malware</h3>
+        <p>Three directions, one decision point. The work makes the call. The answer lives somewhere between the memory image and the disassembler.</p>
+      </div>
+    </div>
+
+    <div class="certs-panel fade-in">
+      <div class="cert-block">
+        <h4>Certifications</h4>
+        <div class="cert-item">
+          <div class="c-name">CompTIA Security+ <span class="badge earned">Earned</span></div>
+          <div class="c-meta">2024</div>
+        </div>
+        <div class="cert-item">
+          <div class="c-name">CompTIA CySA+ <span class="badge earned">Earned</span></div>
+          <div class="c-meta">2024</div>
+        </div>
+        <div class="cert-item">
+          <div class="c-name">ISC2 CC <span class="badge earned">Earned</span></div>
+          <div class="c-meta">2025</div>
+        </div>
+        <div class="cert-item">
+          <div class="c-name">HTB CDSA <span class="badge prog">In Progress</span></div>
+          <div class="c-meta">Expected 2026</div>
+        </div>
+      </div>
+      <div class="cert-block">
+        <h4>Frameworks</h4>
+        <div class="cert-item">
+          <div class="c-name" style="font-family:var(--mono);font-size:0.68rem;line-height:2;color:var(--muted);">
+            MITRE ATT&amp;CK &middot; NIST CSF &middot; Cyber Kill Chain<br>
+            PCI DSS &middot; ISO/IEC 27001 &middot; COBIT
+          </div>
+        </div>
+      </div>
+      <div class="cert-block">
+        <h4>Education</h4>
+        <div class="cert-item">
+          <div class="c-name" style="font-family:var(--mono);font-size:0.72rem;">A.S. Cybersecurity</div>
+          <div class="c-meta">LA Mission College &middot; 2023</div>
+        </div>
+        <div class="cert-item">
+          <div class="c-name" style="font-family:var(--mono);font-size:0.72rem;">B.S. Computer Information Technology <span class="badge prog">2026</span></div>
+          <div class="c-meta">CSUN</div>
+        </div>
+        <div class="cert-item">
+          <div class="c-name" style="font-family:var(--mono);font-size:0.72rem;">M.S. Information Security <span class="badge prog">2028</span></div>
+          <div class="c-meta">Cal Poly Pomona</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── OUTSIDE ────────────────────────────────────────────────────────────── -->
+<div class="wrap fade-in" id="outside">
+  <p class="s-label">// 05 &mdash; Outside the Terminal</p>
+  <h2 class="s-title">THE REST</h2>
+  <div class="outside-grid">
+    <div class="out-card"><h4>Photography</h4><p>Composition, light, and the half-second before a frame resolves. The same instinct that catches the shot notices an anomaly in a packet capture.</p></div>
+    <div class="out-card"><h4>Motorsports</h4><p>Systems under pressure, marginal gains, reading what is going to happen before it does. Pattern recognition in a different domain at higher stakes.</p></div>
+    <div class="out-card"><h4>Calisthenics</h4><p>No equipment, no shortcuts. Progress is a strict function of honest self-assessment and consistent work over time. That principle moves well between domains.</p></div>
+    <div class="out-card"><h4>Music Design</h4><p>Production and sound design from silence. Every element earns its place or it does not belong. Same logic as writing a detection rule.</p></div>
+    <div class="out-card"><h4>Museums</h4><p>Natural history, science, art. Practicing the patience to look at something slowly until you actually understand it, deliberately and not just in a lab.</p></div>
+    <div class="out-card"><h4>Hiking</h4><p>Los Angeles trails are better than most residents realize. Terrain that demands attention is a reliable way to flush the mental stack.</p></div>
+    <div class="out-card"><h4>Gaming</h4><p>Strategy, simulation, systems that reward thinking over reflexes. A well-designed game is a well-designed rule set with edge cases you find by breaking it.</p></div>
+    <div class="out-card"><h4>Low-Level Code</h4><p>Learning C because the gap between Python and the machine is where most of the real security work happens. Pointers stopped being frightening once they made sense.</p></div>
+  </div>
+</div>
+
+<!-- ── CONTACT ────────────────────────────────────────────────────────────── -->
+<section id="contact">
+  <p class="s-label">// 06 &mdash; Reach Out</p>
+  <h2 class="s-title">LET'S<br>TALK</h2>
+  <p>Open to SOC analyst roles, detection engineering conversations, and internships in DFIR or offensive security. If the work is real, the conversation is worth having.</p>
+  <div class="contact-links">
+    <a href="mailto:isaiahbernal750@outlook.com" class="btn">isaiahbernal750@outlook.com</a>
+    <a href="https://linkedin.com/in/isaiah-bernal-707576218" target="_blank" rel="noopener noreferrer" class="btn ghost">LinkedIn</a>
+    <a href="https://github.com/ibernal1815" target="_blank" rel="noopener noreferrer" class="btn ghost">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  <p><span>Isaiah Bernal</span> &mdash; Los Angeles, CA</p>
+  <p><span>CSUN &rarr; Cal Poly Pomona</span> &mdash; Built without frameworks.</p>
+</footer>
+
+<!-- ── PROJECT MODAL ──────────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle"></h2>
+      <button class="modal-close" id="modalClose">[ close ]</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!--
+  Script loading order matters:
+    1. projects.js  — defines the PROJECTS array (data)
+    2. terminal.js  — reads nothing from PROJECTS, self-contained
+    3. radar.js     — self-contained canvas module
+    4. main.js      — reads PROJECTS for modal, wires everything else
+-->
+<script src="assets/data/projects.js"></script>
+<script src="assets/js/terminal.js"></script>
+<script src="assets/js/radar.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
